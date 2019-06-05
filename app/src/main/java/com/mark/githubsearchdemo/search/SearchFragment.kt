@@ -87,10 +87,10 @@ class SearchFragment : Fragment(), SearchContract.View, View.OnClickListener {
 
     override fun onClick(v: View?) {
         if ("" != mResult && mResult != null) {
-            mRecyclerView?.setVisibility(View.VISIBLE)
+            mRecyclerView?.visibility = View.VISIBLE
             mPresenter?.loadSearchData(mResult!!)
         } else {
-            mRecyclerView?.setVisibility(View.GONE)
+            mRecyclerView?.visibility = View.GONE
         }
     }
 }

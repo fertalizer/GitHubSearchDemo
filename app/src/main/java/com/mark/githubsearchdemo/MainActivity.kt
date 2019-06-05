@@ -2,6 +2,8 @@ package com.mark.githubsearchdemo
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.mark.githubsearchdemo.data.RemoteDataSource
+import com.mark.githubsearchdemo.data.User
 import com.mark.githubsearchdemo.search.SearchFragment
 import com.mark.githubsearchdemo.search.SearchPresenter
 
@@ -18,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     private fun searchDemo() {
         var fragmentTransaction = getSupportFragmentManager().beginTransaction()
         var fragment = SearchFragment.newInstance()
-        mPresenter = SearchPresenter(fragment)
+        mPresenter = SearchPresenter(RemoteDataSource, fragment)
         fragmentTransaction.replace(R.id.container, fragment, Constant.FRAGMENT_SEARCH)
         fragmentTransaction.commit()
     }
